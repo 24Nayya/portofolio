@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Portofolio Nayya Alta Namira</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap');
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-padding-top: 80px; /* offset untuk navbar agar judul tidak tertutup */
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #89f7fe 0%, #66a6ff 100%);
+      color: #222;
+      min-height: 100vh;
+      overflow-x: hidden;
+      line-height: 1.6;
+      animation: bgshift 10s ease-in-out infinite alternate;
+      padding-bottom: 3rem;
+    }
+    @keyframes bgshift {
+      0% {
+        background: linear-gradient(135deg, #89f7fe 0%, #66a6ff 100%);
+      }
+      100% {
+        background: linear-gradient(135deg, #f6d365 0%, #fda085 100%);
+      }
+    }
+
+    a {
+      color: #004dff;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    a:hover,
+    a:focus {
+      color: #ff5e5e;
+      outline: none;
+    }
+
+    header {
+      background: rgba(255 255 255 / 0.9);
+      backdrop-filter: saturate(180%) blur(15px);
+      box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+      padding: 1rem 2rem;
+      position: sticky;
+      top: 0;
+      z-index: 10000;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      animation: slideDown 1s ease forwards;
+    }
+    @keyframes slideDown {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    header h1 {
+      font-weight: 700;
+      color: #222;
+      font-size: 1.8rem;
+      letter-spacing: 1.5px;
+      cursor: default;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1.2rem;
+    }
+
+    nav li {
+      position: relative;
+      font-weight: 500;
+      font-size: 1rem;
+      letter-spacing: 0.8px;
+      cursor: pointer;
+      border-bottom: 2px solid transparent;
+      transition: border-color 0.3s;
+    }
+    nav li:hover,
+    nav li:focus-within {
+      border-bottom: 2px solid #ff5e5e;
+    }
+
+    nav li a {
+      color: #444;
+    }
+
+    main {
+      max-width: 960px;
+      margin: 3rem auto 4rem;
+      padding: 0 1rem;
+      animation: fadeIn 1.2s ease forwards;
+    }
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(15px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    section {
+      background: rgba(255 255 255 / 0.95);
+      border-radius: 20px;
+      box-shadow: 0 25px 45px rgb(255 94 94 / 0.2);
+      padding: 2.2rem 2.5rem 2.5rem;
+      margin-bottom: 3.2rem;
+      animation: cardAppear 0.9s ease forwards;
+      position: relative;
+      overflow: hidden;
+    }
+    @keyframes cardAppear {
+      from {
+        opacity: 0;
+        transform: translateY(25px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    section h2 {
+      font-size: 2.1rem;
+      color: #333;
+      margin-bottom: 1.2rem;
+      border-left: 8px solid #ff5e5e;
+      padding-left: 12px;
+      letter-spacing: 1.5px;
+    }
+
+    #about {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 3rem;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .profile-pic {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 5px solid #ff5e5e;
+      box-shadow: 0 10px 22px rgb(255 94 94 / 0.5);
+      animation: bounce 4s ease-in-out infinite;
+      flex-shrink: 0;
+      margin-left: 1rem;
+      margin-right: 1rem;
+    }
+    @keyframes bounce {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-15px);
+      }
+    }
+
+    #about p {
+      flex: 1 1 320px;
+      font-size: 1.15rem;
+      color: #444;
+      letter-spacing: 0.02em;
+      line-height: 1.7;
+      text-align: justify;
+      margin: 0 1rem;
+      white-space: pre-line;
+    }
+
+    ul {
+      list-style: inside disc;
+      color: #444;
+      font-size: 1.12rem;
+      line-height: 1.65;
+      margin-left: 1rem;
+      padding-left: 0;
+    }
+
+    #certificates ul li,
+    #skills ul li {
+      position: relative;
+      padding-left: 22px;
+      margin-bottom: 1rem;
+      font-weight: 600;
+      cursor: default;
+      color: #333;
+      transition: color 0.3s ease;
+    }
+    #certificates ul li:hover,
+    #skills ul li:hover {
+      color: #ff5e5e;
+    }
+    #certificates ul li a {
+      font-weight: 700;
+      color: #1a73e8;
+    }
+    #certificates ul li a:hover {
+      color: #0046c3;
+      text-decoration: underline;
+    }
+
+    /* For the Download CV section */
+    #download-cv {
+      text-align: center;
+    }
+    #download-cv h2 {
+      margin-bottom: 1.5rem;
+    }
+    #download-cv a.btn-download {
+      font-size: 1.2rem;
+      padding: 0.65rem 2rem;
+      box-shadow: 0 12px 24px rgb(255 94 94 / 0.6);
+    }
+
+    #contact {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      font-size: 1.2rem;
+      color: #222;
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
+    #contact a {
+      font-weight: 600;
+      color: #ff5e5e;
+      word-break: break-word;
+      transition: color 0.3s ease;
+    }
+    #contact a:hover,
+    #contact a:focus {
+      color: #bb2525;
+    }
+
+    /* Buttons Download style */
+    .btn-download {
+      display: inline-block;
+      padding: 0.5rem 1.4rem;
+      background: #ff5e5e;
+      color: white;
+      border-radius: 30px;
+      font-weight: 700;
+      font-size: 1rem;
+      box-shadow: 0 10px 20px rgb(255 94 94 / 0.5);
+      transition: background-color 0.3s ease, transform 0.3s ease;
+      text-decoration: none;
+      user-select: none;
+      cursor: pointer;
+      user-select:none;
+      -webkit-user-select:none;
+      -moz-user-select:none;
+      -ms-user-select:none;
+    }
+    .btn-download:hover,
+    .btn-download:focus {
+      background: #bb2525;
+      transform: scale(1.07);
+      outline: none;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      #about {
+        flex-direction: column;
+        text-align: center;
+      }
+      #about p {
+        white-space: normal;
+        margin: 0 0 0.5rem 0;
+      }
+      nav ul {
+        gap: 0.9rem;
+        font-size: 0.9rem;
+      }
+      header h1 {
+        font-size: 1.4rem;
+      }
+      main {
+        padding: 0 1rem;
+      }
+      section {
+        padding: 1.8rem 1.6rem 1.8rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .profile-pic {
+        width: 140px;
+        height: 140px;
+        margin-left: 0;
+        margin-right: 0;
+        margin-bottom: 1rem;
+      }
+      section h2 {
+        font-size: 1.6rem;
+      }
+      main {
+        margin: 2rem 1rem 3rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Portofolio</h1>
+    <nav aria-label="Main navigation">
+      <ul>
+        <li><a href="#about" tabindex="0">Tentang Saya</a></li>
+        <li><a href="#education" tabindex="0">Pendidikan</a></li>
+        <li><a href="#experience" tabindex="0">Pengalaman</a></li>
+        <li><a href="#skills" tabindex="0">Skill</a></li>
+        <li><a href="#certificates" tabindex="0">Sertifikat dan CV</a></li>
+        <li><a href="#contact" tabindex="0">Kontak</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section id="about" tabindex="0" aria-label="Tentang Saya">
+      <h2>Tentang Saya</h2>
+      <div id="about-wrapper" style="display:flex; flex-wrap:wrap; justify-content:center; align-items:center;">
+        <img src="profile.jpeg" alt="Foto Profil Nayya Alta Namira" class="profile-pic" />
+        <p>
+          Saya Nayya Alta Namira lulusan SMK Pelita Ciampea 2 dengan pengalaman PKL selama 4 bulan di bidang administrasi di Departemen Agronomi dan Hortikultura IPB University. Selama PKL, saya menjalankan tugas seperti entri data, pengarsipan, pengecekan dokumen, serta pengiriman surat melalui e-Office. 
+		  Saya selalu berusaha menyelesaikan setiap pekerjaan dengan sungguh-sungguh dan tepat waktu. Saya percaya bahwa rasa tanggung jawab, kemauan untuk belajar, dan konsistensi adalah kunci untuk berkembang. Meskipun masih di awal perjalanan karier, saya siap bekerja keras dan terus memperbaiki diri melalui setiap pengalaman yang saya dapatkan.
+        </p>
+      </div>
+    </section>
+
+    <section id="education" tabindex="0" aria-label="Pendidikan">
+      <h2>Pendidikan</h2>
+      <ul>
+		<p><li><strong>SMP Negeri 1 Dramaga</strong><br />
+        Juli 2019 - Mei 2022</p>
+        <p><li><strong>SMK Pelita Ciampea 2</strong> - Teknik Jaringan Komputer dan Telekomunikasi<br />
+        Juli 2022 - Maret 2025</p>
+      </ul>
+    </section>
+
+    <section id="experience" tabindex="0" aria-label="Pengalaman">
+      <h2>Pengalaman</h2>
+      <h3>Peserta PKL - Departemen Agronomi dan Hortikultura, IPB University (November 2023 - Maret 2024)</h3>
+      <ul>
+        <li>Melakukan pemindaian dan fotokopi dokumen resmi.</li>
+        <li>Mengecap tanda tangan pada skripsi yang telah ditandatangani oleh Ketua Departemen.</li>
+        <li>Menginput data terkait skripsi, proposal penelitian, dan hasil penelitian akhir.</li>
+        <li>Menyusun arsip aktif dan tidak aktif berdasarkan klasifikasi.</li>
+        <li>Menata dan menyortir skripsi sebelum dipindahkan ke ruang penyimpanan akhir.</li>
+        <li>Memverifikasi data skripsi dengan mencocokkannya pada dokumen asli.</li>
+        <li>Menata kabel dan menjaga kerapihan di area kantor Dekanat.</li>
+        <li>Mengirim surat melalui sistem e-Office IPB ke mahasiswa, dosen, departemen, dan fakultas.</li>
+        <li>Membuat draft surat resmi administrasi.</li>
+        <li>Mengelola absensi pegawai secara manual dan digital.</li>
+        <li>Memindahkan arsip antara perpustakaan dan ruang penyimpanan.</li>
+        <li>Membantu menyusun dan merapikan dokumen administrasi sesuai permintaan.</li>
+      </ul>
+    </section>
+
+    <section id="skills" tabindex="0" aria-label="Skill">
+      <h2>Skill</h2>
+      <ul>
+        <li>Microsoft Word</li>
+        <li>Bekerja dalam tim</li>
+        <li>Entri data</li>
+        <li>Pengarsipan</li>
+      </ul>
+    </section>
+
+    <section id="certificates" tabindex="0" aria-label="Sertifikat">
+      <h2>Sertifikat</h2>
+      <ul>
+        <li>
+          <a href="sertifikat_bnsp_jaringan_komputer.pdf" download="Sertifikat_BNSP_Jaringan_Komputer.pdf" class="btn-download" aria-label="Download Sertifikat BNSP Jaringan Komputer">Sertifikat BNSP Jaringan Komputer (Download PDF)</a>
+        </li>
+        <li>
+          <a href="Sertifikat_Peserta_PKL.pdf" download="Sertifikat_Peserta_PKL.pdf" class="btn-download" aria-label="Download Sertifikat Peserta PKL">Sertifikat Peserta PKL (Download PDF)</a>
+        </li>
+      </ul>
+    </section>
+
+    <section id="download-cv" tabindex="0" aria-label="Download CV">
+      <h2>Download CV</h2>
+      <a href="CV_Nayya_Alta_Namira.pdf" download="CV_Nayya_Alta_Namira.pdf" class="btn-download" aria-label="Download CV Nayya Alta Namira">Download CV (PDF)</a>
+    </section>
+
+    <section id="contact" tabindex="0" aria-label="Kontak">
+      <h2>Kontak</h2>
+      <p>📞 <a href="tel:+6283173045993">+62 831 7304 5993</a></p>
+      <p>✉️ <a href="mailto:career.nayya@gmail.com">career.nayya@gmail.com</a></p>
+      <p>🔗 <a href="https://linkedin.com/in/nayya-alta-namira" target="_blank" rel="noopener noreferrer">linkedin.com/in/nayya-alta-namira</a></p>
+    </section>
+  </main>
+</body>
+</html>
+
